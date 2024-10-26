@@ -15,6 +15,7 @@ def get_data():
     llm_message = llm_message['message']
     
     keywords = extract_k(llm_message)
+    print(f'keywords: {keywords}')
     fact_check = extract_q(keywords, llm_message)
 
     print(fact_check)

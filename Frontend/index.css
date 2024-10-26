@@ -60,13 +60,13 @@ button:hover {
 #text-input {
   min-height: 300px;
   padding: 10px;
-  border-radius: 5px; /* Updated border-radius */
+  border-radius: 5px;
   resize: none;
   box-sizing: border-box;
-  background-color: rgb(26, 26, 26); /* Dark background */
+  background-color: rgb(26, 26, 26);
   color: aliceblue; /* White text */
-  border: 2px solid aliceblue; /* Updated border */
-  font-family: "JetBrains Mono", monospace; /* Matching font */
+  border: 2px solid aliceblue;
+  font-family: "JetBrains Mono", monospace;
 }
 
 #similarity-score {

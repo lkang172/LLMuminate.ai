@@ -1,3 +1,77 @@
+const showLoadingScreen = () => {
+  const list = [
+    "Fact-checking the facts… and also your patience.",
+    "Making sure the facts have facts.",
+    "Unpacking some truth… bubble wrap takes a while.",
+    "Loading facts… and some dad jokes.",
+    "Verifying everything twice… just in case.",
+    "Questioning the questions and answering the answers.",
+    "Consulting with our very serious AI... who loves puns.",
+    "Giving falsehoods the silent treatment.",
+    "Turning rumors into facts… or debunking them.",
+    "Breaking up with misinformation... it was toxic anyway.",
+    "Ensuring our AI doesn’t fall for clickbait.",
+    "Fact-checking so you don’t have to…",
+    "Loading… because the truth takes time.",
+    "Separating the facts from the fiction, with AI precision.",
+  ];
+  //const body = document.createElement("body");
+  document.body.innerHTML = `
+    <div id="loading">
+      <div class="rotate"></div>
+      <div class="center"></div>
+    </div>
+    <style>
+      #loading {
+          position : relative;
+          height: 200px;
+          width: 200px;
+          justify-self: center;
+      }
+      .center {
+          position: relative;
+          width: 100px;
+          height: 100px;
+          background-color : rgb(26, 26, 26);
+          border-radius : 50%;
+          top: 25%;
+          place-self : center;
+          z-index: 0;
+      }
+      .rotate {
+          width: 200px;
+          height: 200px;
+          z-index: -1;
+          background-image: conic-gradient(rgb(26, 26, 26), rgb(100, 100, 100));
+          border-radius : 50%;
+          animation-name: rotate;
+          animation-duration: 3s;
+          animation-iteration-count: infinite;
+          animation-timing-function: linear;
+          position: absolute;
+          place-self : center;
+          }
+  
+        @keyframes rotate {
+            from {
+              transform: rotate(0deg);
+            }
+            to {
+              transform: rotate(360deg);
+            }  
+          }
+    </style>
+  `;
+  const text = document.createElement("h2");
+  let i = 0;
+  document.body.appendChild(text);
+  text.textContent = list[Math.floor(Math.random() * list.length)];
+  const updateText = () => {
+    text.textContent = list[Math.floor(Math.random() * list.length)];
+  };
+  setInterval(updateText, 3000);
+};
+
 const start = () => {
   let output = document.createElement("p");
   output.id = "#message";
@@ -38,10 +112,12 @@ const start = () => {
           );
           ++i;
         }
+        showLoadingScreen();
         document.body = await factCheck(convo[convo.length - 1].textContent);
       } else if (
         doc.querySelector("title").textContent.search("Claude") != -1
       ) {
+        showLoadingScreen();
         document.body = await factCheck(
           doc
             .querySelector('div[data-test-render-count="1"]')
@@ -53,6 +129,7 @@ const start = () => {
           .getAttribute("content") == "Gemini"
       ) {
         let responses = doc.querySelectorAll("message-content");
+        showLoadingScreen();
         document.body = await factCheck(
           responses[responses.length - 1].textContent
         );
@@ -72,6 +149,7 @@ const start = () => {
         document.body.removeChild(textInput);
         document.body.removeChild(button);
         document.body.removeChild(title);
+        showLoadingScreen();
         document.body = await factCheck(textInput.value);
       });
       document.body.appendChild(textInput);

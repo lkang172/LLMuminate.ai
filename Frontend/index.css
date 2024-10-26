@@ -81,3 +81,16 @@ textarea:focus {
 textarea {
   padding: 10px;
 }
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: none;
+}
+
+::-webkit-scrollbar-thumb {
+  background: aliceblue;
+  border-radius: 5px;
+}

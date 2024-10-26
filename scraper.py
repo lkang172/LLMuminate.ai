@@ -56,4 +56,4 @@ def search_articles(search_query):
     return full_text
 
 #sample call
-print(search_articles("cancer treatment chemo"))
+#print(search_articles("cancer treatment chemo"))

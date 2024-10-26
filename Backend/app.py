@@ -1,9 +1,11 @@
 from flask import Flask, request, jsonify
-from Backend.extract_keywords import extract_k
-from Backend.extract_quotes import extract_q
+from flask_cors import CORS
+from extract_keywords import extract_k
+from extract_quotes import extract_q
 import json
 
 app = Flask(__name__)
+CORS(app)
 llm_message = ""
 
 @app.route('/api/message', methods=['POST'])

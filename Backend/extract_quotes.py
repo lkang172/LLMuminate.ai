@@ -1,7 +1,7 @@
 import anthropic
 import os
 from dotenv import load_dotenv
-from Backend.scraper import search_articles
+from scraper import search_articles
 
 def extract_q(keywords, original_prompt):
     load_dotenv()

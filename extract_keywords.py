@@ -7,12 +7,9 @@ load_dotenv()
 
 
 client = anthropic.Anthropic(
-    # defaults to os.environ.get("ANTHROPIC_API_KEY")
     api_key = os.getenv("ANTHROPIC_API_KEY")
 )
 
-# Replace placeholders like {{AI_RESPONSE}} with real values,
-# because the SDK does not support variables.
 message = client.messages.create(
     model="claude-3-5-sonnet-20241022",
     max_tokens=1000,
@@ -29,4 +26,5 @@ message = client.messages.create(
         }
     ]
 )
-print(message.content)
+
+keywords = message.content

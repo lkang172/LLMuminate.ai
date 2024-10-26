@@ -31,11 +31,7 @@ def search_articles(search_query):
     article_urls = search_pubmed(search_query)
     full_text = []
     
-    #print(f'Found {len(article_urls)} article URLs.')
-
-    for url in article_urls[:5]:
-        #print(f'Fetching article from: {url}')
-        
+    for url in article_urls[:5]:        
         headers = {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36'
         }
@@ -59,5 +55,5 @@ def search_articles(search_query):
 
     return full_text
 
-# Example usage
+#sample call
 print(search_articles("cancer treatment chemo"))

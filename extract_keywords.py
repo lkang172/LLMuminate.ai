@@ -1,6 +1,7 @@
 import anthropic
 import os
 from dotenv import load_dotenv
+import re
 
 load_dotenv()
 
@@ -26,6 +27,7 @@ def extract(message):
         ]
     )
 
-    keywords = message.content
-    print(keywords)
-    #return keywords
+    full_keywords_string = message.content[0].text
+    keywords = [keyword.strip() for keyword in re.split(r',\s*', full_keywords_string)]
+    formatted_query = ' OR '.join([f'"{keyword}"' for keyword in keywords])
+    return formatted_query

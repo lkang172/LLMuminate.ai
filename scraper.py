@@ -33,7 +33,7 @@ def search_articles(search_query):
     
     #print(f'Found {len(article_urls)} article URLs.')
 
-    for url in article_urls:
+    for url in article_urls[:5]:
         #print(f'Fetching article from: {url}')
         
         headers = {
@@ -60,4 +60,4 @@ def search_articles(search_query):
     return full_text
 
 # Example usage
-print(search_articles("cancer"))
+print(search_articles("cancer treatment chemo"))

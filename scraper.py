@@ -15,15 +15,13 @@ def search_pubmed(keywords):
         return []
 
     soup = BeautifulSoup(page.text, 'html.parser')
-    title_divs = soup.find_all('div', class_='docsum-content')
+    content_divs = soup.find_all('div', class_='docsum-content')
     article_links = []
 
-    for div in title_divs:
+    for div in content_divs:
         link = div.find('a')
         if link and 'href' in link.attrs:
             href = link['href']
-            print(href)
-            cut_link = href[4:]
             article_links.append(f'https://pubmed.ncbi.nlm.nih.gov{href}')
 
     return article_links
@@ -55,23 +53,3 @@ def search_articles(search_query):
             print(f'No corresponding section found in {url}')
 
     return full_text, article_urls
-
-#sample call
-'''keywords = [
-    "influenza symptom management",
-    "hydration flu recovery",
-    "over-the-counter flu medications",
-    "steam inhalation effectiveness",
-    "salt water gargle flu",
-    "humidifier respiratory symptoms",
-    "nutrition immune system flu",
-    "honey antimicrobial properties",
-    "antiviral medications influenza",
-    "rest immune response",
-    "fluid intake respiratory infection"
-]'''
-
-# Format the keywords with 'OR' and enclose each in quotes
-#formatted_query = ' OR '.join([f'"{keyword}"' for keyword in keywords])
-#print(formatted_query)
-#print(search_articles(formatted_query))

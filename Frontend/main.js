@@ -134,25 +134,25 @@ const formatSimilarityScore = (similarityScore) => {
         #bar {
             display : flex;
             height : 20px;
-            width : 100%;
+            width : 90%;
         }
         #true {
-            justify-self : left;
-            height : 20px;
-            width : ${similarityScore.similarity_score}%;
-            background-color : green;
-            border-top-left-radius : 10px;
-            border-bottom-left-radius : 10px;
-            text-align : center;
+            justify-self: left;
+            height: 20px;
+            width: ${similarityScore.similarity_score}%;
+            background-color: green;
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+            text-align: center;
         }
         #false {
             justify-self : right;
-            height : 20px;
-            width : ${100 - similarityScore.similarity_score}%;
-            background-color : red;
-            border-top-right-radius : 10px;
-            border-bottom-right-radius : 10px;
-            text-align : center;
+            height: 20px;
+            width: ${100 - similarityScore.similarity_score}%;
+            background-color: red;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+            text-align: center;
         }
       </style>
       <p>${similarityScore.reasoning}</p>`;
@@ -164,7 +164,7 @@ const formatFactCheck = (factCheck) => {
         <li>
             <h3 class="llm-claim">\"${factCheck.llm_claim}\"</h3>
             <p class="check">${factCheck.check}</p>
-            <p><a href="${factCheck.backup.link}" target="_blank">Sourc: \"${factCheck.backup.quote}\"</a></p>
+            <p><a href="${factCheck.backup.link}" target="_blank">Source: \"${factCheck.backup.quote}\"</a></p>
         </li>
     `;
 };

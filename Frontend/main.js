@@ -134,7 +134,7 @@ const formatSimilarityScore = (similarityScore) => {
         #bar {
             display : flex;
             height : 20px;
-            width : 90%;
+            width : 100%;
         }
         #true {
             justify-self: left;

@@ -9,7 +9,7 @@ client = anthropic.Anthropic(
     api_key = os.getenv("ANTHROPIC_API_KEY")
 )
 
-def extract(message):
+def extract_k(message):
     message = client.messages.create(
         model = "claude-3-5-sonnet-20241022",
         max_tokens = 1000,

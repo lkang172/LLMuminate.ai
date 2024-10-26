@@ -91,6 +91,6 @@ textarea {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: aliceblue;
+  background: rgb(150, 150, 150);
   border-radius: 5px;
 }

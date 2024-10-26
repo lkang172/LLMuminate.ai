@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify
-from extract_keywords import extract_k
-from extract_quotes import extract_q
+from Backend.extract_keywords import extract_k
+from Backend.extract_quotes import extract_q
 import json
 
 app = Flask(__name__)

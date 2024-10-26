@@ -1,0 +1,11 @@
+{
+  "name": "LLMuniate.ai",
+  "description": "LLMiminate the bad, LLMuminate the truth",
+  "version": "1.0",
+  "manifest_version": 3,
+  "action": {
+    "default_popup": "index.html",
+    "default_icon": "icons/icon.png"
+  },
+  "permissions": ["scripting", "activeTab"]
+}

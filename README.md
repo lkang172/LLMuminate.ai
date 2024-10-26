@@ -6,6 +6,8 @@ LLMuminate.ai is a browser extension that will fact-check LLM responses in real-
 
 The resulting user output is a summary featuring an analysis of each of the LLM's points, and evidence (quotes) from the articles either in support of, neutral, or against what the LLM stated to be true. The links to the papers are also provided in case the user would like to explore further. 
 
-Tech stack: 
+Tech stack:
+
 Frontend: JavaScript, HTML, CSS
+
 Backend: Python, Flask, BeautifulSoup

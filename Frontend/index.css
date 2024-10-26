@@ -5,6 +5,7 @@ body {
   width: 500px;
   text-align: center;
   font-size: medium;
+  padding: 20px;
   color: white; /* Changed text color to white */
   display: grid;
   justify-content: center;
@@ -49,11 +50,11 @@ button:hover {
 }
 
 .llm-claim {
-  color: rgb(150, 150, 150);
+  color: rgb(201, 201, 201);
 }
 
 .check {
-  color: rgb(211, 41, 186);
+  color: rgb(250, 90, 226);
 }
 
 #text-input {
@@ -91,6 +92,6 @@ textarea {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgb(150, 150, 150);
+  background: rgb(201, 201, 201);
   border-radius: 5px;
 }

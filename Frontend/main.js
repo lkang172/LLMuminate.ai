@@ -140,7 +140,7 @@ const formatSimilarityScore = (similarityScore) => {
             justify-self: left;
             height: 20px;
             width: ${similarityScore.similarity_score}%;
-            background-color: green;
+            background-color: rgb(103, 204, 123);
             border-top-left-radius: 10px;
             border-bottom-left-radius: 10px;
             text-align: center;
@@ -149,13 +149,13 @@ const formatSimilarityScore = (similarityScore) => {
             justify-self : right;
             height: 20px;
             width: ${100 - similarityScore.similarity_score}%;
-            background-color: red;
+            background-color: rgb(246, 112, 112);
             border-top-right-radius: 10px;
             border-bottom-right-radius: 10px;
             text-align: center;
         }
       </style>
-      <p>${similarityScore.reasoning}</p>`;
+      <p style="color: rgb(128, 140, 250)">${similarityScore.reasoning}</p>`;
   return simcontainer;
 };
 
@@ -164,13 +164,17 @@ const formatFactCheck = (factCheck) => {
         <li>
             <h3 class="llm-claim">\"${factCheck.llm_claim}\"</h3>
             <p class="check">${factCheck.check}</p>
-            <p><a href="${factCheck.backup.link}" target="_blank">Source: \"${factCheck.backup.quote}\"</a></p>
+            <p><a href="${factCheck.backup.link}" target="_blank" style="color: rgb(206, 203, 112); text-decoration: none"><u><strong>Source:</strong></u> <i>\"${factCheck.backup.quote}\"</i></a></p>
         </li>
     `;
 };
 
 const formatFactChecks = (factChecks) => {
-  factcontainer = document.createElement("div", (id = "fact-checks"));
+  factcontainer = document.createElement(
+    "div",
+    (id = "fact-checks"),
+    (style = "padding: 20px")
+  );
   factcontainer.innerHTML = `
         <h1>Fact Checks</h1>
         <ul>

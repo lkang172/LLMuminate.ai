@@ -1,77 +1,3 @@
-const showLoadingScreen = () => {
-  const list = [
-    "Fact-checking the facts… and also your patience.",
-    "Making sure the facts have facts.",
-    "Unpacking some truth… bubble wrap takes a while.",
-    "Loading facts… and some dad jokes.",
-    "Verifying everything twice… just in case.",
-    "Questioning the questions and answering the answers.",
-    "Consulting with our very serious AI... who loves puns.",
-    "Giving falsehoods the silent treatment.",
-    "Turning rumors into facts… or debunking them.",
-    "Breaking up with misinformation... it was toxic anyway.",
-    "Ensuring our AI doesn’t fall for clickbait.",
-    "Fact-checking so you don’t have to…",
-    "Loading… because the truth takes time.",
-    "Separating the facts from the fiction, with AI precision.",
-  ];
-  //const body = document.createElement("body");
-  document.body.innerHTML = `
-    <div id="loading">
-      <div class="rotate"></div>
-      <div class="center"></div>
-    </div>
-    <style>
-      #loading {
-          position : relative;
-          height: 200px;
-          width: 200px;
-          justify-self: center;
-      }
-      .center {
-          position: relative;
-          width: 100px;
-          height: 100px;
-          background-color : rgb(26, 26, 26);
-          border-radius : 50%;
-          top: 25%;
-          place-self : center;
-          z-index: 0;
-      }
-      .rotate {
-          width: 200px;
-          height: 200px;
-          z-index: -1;
-          background-image: conic-gradient(rgb(26, 26, 26), rgb(100, 100, 100));
-          border-radius : 50%;
-          animation-name: rotate;
-          animation-duration: 3s;
-          animation-iteration-count: infinite;
-          animation-timing-function: linear;
-          position: absolute;
-          place-self : center;
-          }
-  
-        @keyframes rotate {
-            from {
-              transform: rotate(0deg);
-            }
-            to {
-              transform: rotate(360deg);
-            }  
-          }
-    </style>
-  `;
-  const text = document.createElement("h2");
-  let i = 0;
-  document.body.appendChild(text);
-  text.textContent = list[Math.floor(Math.random() * list.length)];
-  const updateText = () => {
-    text.textContent = list[Math.floor(Math.random() * list.length)];
-  };
-  setInterval(updateText, 3000);
-};
-
 const start = () => {
   let output = document.createElement("p");
   output.id = "#message";
@@ -221,6 +147,12 @@ const formatSimilarityScore = (similarityScore) => {
             background-color: rgb(103, 204, 123);
             border-top-left-radius: 10px;
             border-bottom-left-radius: 10px;
+            border-bottom-right-radius: ${
+              similarityScore.similarity_score == 100 ? 10 : 0
+            }px;
+            border-top-right-radius: ${
+              similarityScore.similarity_score == 100 ? 10 : 0
+            }px;
             text-align: center;
         }
         #false {
@@ -230,6 +162,12 @@ const formatSimilarityScore = (similarityScore) => {
             background-color: rgb(246, 112, 112);
             border-top-right-radius: 10px;
             border-bottom-right-radius: 10px;
+            border-bottom-left-radius: ${
+              similarityScore.similarity_score == 0 ? 10 : 0
+            }px;
+            border-top-left-radius: ${
+              similarityScore.similarity_score == 0 ? 10 : 0
+            }px;
             text-align: center;
         }
       </style>
@@ -262,4 +200,78 @@ const formatFactChecks = (factChecks) => {
         </ul>
     `;
   return factcontainer;
+};
+
+const showLoadingScreen = () => {
+  const list = [
+    "Fact-checking the facts… and also your patience.",
+    "Making sure the facts have facts.",
+    "Unpacking some truth… bubble wrap takes a while.",
+    "Loading facts… and some dad jokes.",
+    "Verifying everything twice… just in case.",
+    "Questioning the questions and answering the answers.",
+    "Consulting with our very serious AI... who loves puns.",
+    "Giving falsehoods the silent treatment.",
+    "Turning rumors into facts… or debunking them.",
+    "Breaking up with misinformation... it was toxic anyway.",
+    "Ensuring our AI doesn’t fall for clickbait.",
+    "Fact-checking so you don’t have to…",
+    "Loading… because the truth takes time.",
+    "Separating the facts from the fiction, with AI precision.",
+  ];
+  //const body = document.createElement("body");
+  document.body.innerHTML = `
+      <div id="loading">
+        <div class="rotate"></div>
+        <div class="center"></div>
+      </div>
+      <style>
+        #loading {
+            position : relative;
+            height: 200px;
+            width: 200px;
+            justify-self: center;
+        }
+        .center {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            background-color : rgb(26, 26, 26);
+            border-radius : 50%;
+            top: 25%;
+            place-self : center;
+            z-index: 0;
+        }
+        .rotate {
+            width: 200px;
+            height: 200px;
+            z-index: -1;
+            background-image: conic-gradient(rgb(26, 26, 26), rgb(128, 140, 250));
+            border-radius : 50%;
+            animation-name: rotate;
+            animation-duration: 3s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+            position: absolute;
+            place-self : center;
+            }
+    
+          @keyframes rotate {
+              from {
+                transform: rotate(0deg);
+              }
+              to {
+                transform: rotate(360deg);
+              }  
+            }
+      </style>
+    `;
+  const text = document.createElement("h2");
+  let i = 0;
+  document.body.appendChild(text);
+  text.textContent = list[Math.floor(Math.random() * list.length)];
+  const updateText = () => {
+    text.textContent = list[Math.floor(Math.random() * list.length)];
+  };
+  setInterval(updateText, 3000);
 };
